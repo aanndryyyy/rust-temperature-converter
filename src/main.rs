@@ -14,7 +14,7 @@ fn main() {
             .expect("Failed to read line!");
 
         let choice: u32 = match choice.trim().parse() {
-            Ok(num) => num,
+            Ok(num) => {num},
             Err(_) => {
                 println!("Please type a number!");
                 continue;
@@ -38,7 +38,8 @@ fn main() {
             let adder: f64 = 32.0;
             let value_converted = value * 1.8 + adder;
 
-            println!("\n\n{}°C is {}°F", value, value_converted);
+            print!("{}[2J", 27 as char);
+            println!("{}°C is {}°F", value, value_converted);
             break;
 
         } else if choice == 2 {
@@ -58,8 +59,13 @@ fn main() {
             let subber: f64 = 32.0;
             let value_converted = (value - subber) / 1.8;
 
-            println!("\n\n{}°F is {:.1}°C", value, value_converted);
+            print!("{}[2J", 27 as char);
+            println!("{}°F is {:.1}°C", value, value_converted);
             break;
+
+        } else {
+            print!("{}[2J", 27 as char);
+            println!("Please type 1 or 2 to make a choice!");
         }
     }
 }
