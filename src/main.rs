@@ -1,0 +1,48 @@
+use std::io;
+
+fn main() {
+    print!("{}[2J", 27 as char);
+    println!("Temperature Converter!");
+
+    loop {
+        println!("Convert (1)[°C => °F] or (2)[°F => °C]?");
+
+        let mut choice = String::new();
+        let mut value = String::new();
+
+        io::stdin().read_line(&mut choice)
+            .expect("Failed to read line!");
+
+        let choice: u32 = match choice.trim().parse() {
+            Ok(num) => num,
+            Err(_) => {
+                println!("Please type a number!");
+                continue;
+            },
+        };
+
+        if choice == 1 {
+            println!("Coverting °C => °F, please input!");
+
+            io::stdin().read_line(&mut value)
+                .expect("Failed to read line!");
+
+            let value: f64 = match value.trim().parse() {
+                Ok(num) => num,
+                Err(_) => {
+                    println!("Please type a number!");
+                    continue;
+                },
+            };
+
+            let adder: f64 = 32.0;
+            let value_converted = value * 1.8 + adder;
+
+            println!("\n\n{}°C is {}°F", value, value_converted);
+            break;
+
+        } else if choice == 2 {
+            println!("Coverting °F => °C, please input!");
+        }
+    }
+}
