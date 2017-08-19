@@ -1,3 +1,3 @@
-Temperature converter made in Rust to learning the language.
+Temperature converter made in Rust to learn the language.
 
 The Unlicense
