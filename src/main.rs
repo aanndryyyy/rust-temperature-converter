@@ -43,6 +43,23 @@ fn main() {
 
         } else if choice == 2 {
             println!("Coverting °F => °C, please input!");
+
+            io::stdin().read_line(&mut value)
+                .expect("Failed to read line!");
+
+            let value: f64 = match value.trim().parse() {
+                Ok(num) => num,
+                Err(_) => {
+                    println!("Please type a number!");
+                    continue;
+                },
+            };
+
+            let subber: f64 = 32.0;
+            let value_converted = (value - subber) / 1.8;
+
+            println!("\n\n{}°F is {:.1}°C", value, value_converted);
+            break;
         }
     }
 }
